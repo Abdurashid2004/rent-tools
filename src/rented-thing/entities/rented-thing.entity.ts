@@ -1,11 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Document, HydratedDocument } from 'mongoose';
 import { Address, AddressSchema } from 'src/address/entities/address.entity';
 
 export type RentedThingDocument = HydratedDocument<RentedThing>;
 
 @Schema()
-export class RentedThing {
+export class RentedThing extends Document {
   @Prop({ required: true })
   item_id: string;
 
@@ -21,18 +21,35 @@ export class RentedThing {
   @Prop({ required: true })
   delivery_option: string;
 
-  @Prop({ type: AddressSchema })
+  @Prop({
+    type: {
+      address: AddressSchema,
+      expected_delivery_date: Date,
+    },
+  })
   delivery_details: {
     address: Address;
     expected_delivery_date: Date;
   };
 
-  @Prop()
+  @Prop({
+    type: {
+      location_name: String,
+      location_address: AddressSchema,
+      pickup_time: Date,
+    },
+  })
   pickup_details: {
     location_name: string;
     location_address: Address;
     pickup_time: Date;
   };
+
+  @Prop({ required: true, default: Date.now })
+  created_at: Date;
+
+  @Prop({ required: true, default: Date.now })
+  updated_at: Date;
 }
 
 export const RentedThingSchema = SchemaFactory.createForClass(RentedThing);

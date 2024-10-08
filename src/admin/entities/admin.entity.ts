@@ -6,7 +6,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export class Admin extends Document {
   @ApiProperty({ description: 'Username of the admin', example: 'admin123' })
   @Prop({ required: true })
-  username: string;
+  full_name: string;
 
   @ApiProperty({
     description: 'Password for the admin account',
@@ -33,6 +33,10 @@ export class Admin extends Document {
   @ApiProperty({ description: 'Whether the admin is a creator', example: true })
   @Prop({ required: true })
   is_creator: boolean;
+
+  @ApiProperty({ description: 'Whether the admin is active', example: true })
+  @Prop({ required: true })
+  is_active: boolean;
 }
 
 export const AdminSchema = SchemaFactory.createForClass(Admin);
