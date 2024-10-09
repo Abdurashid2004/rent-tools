@@ -1,9 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { CreateBoughtThingSchemaDto } from './dto/create-bought-thing-schema.dto';
 import { UpdateBoughtThingSchemaDto } from './dto/update-bought-thing-schema.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { BoughtThing } from './entities/bought-thing-schema.entity';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class BoughtThingSchemaService {
+  constructor(
+    @InjectModel(BoughtThing.name)
+    private boughtThingSchemaModel: Model<BoughtThing>,
+  ) {}
   create(createBoughtThingSchemaDto: CreateBoughtThingSchemaDto) {
     return 'This action adds a new boughtThingSchema';
   }

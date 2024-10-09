@@ -4,6 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
 import helmet from 'helmet';
+import { SwaggerTheme, SwaggerThemeNameEnum } from 'swagger-themes';
 
 async function start() {
   const app = await NestFactory.create(AppModule);
@@ -33,7 +34,12 @@ async function start() {
     .addTag('your-api-tag')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  const theme = new SwaggerTheme();
+  const options = {
+    explorer: true,
+    customCss: theme.getBuffer(SwaggerThemeNameEnum.DRACULA),
+  };
+  SwaggerModule.setup('api', app, document, options);
 
   // Get port from configuration
 

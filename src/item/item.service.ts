@@ -1,9 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { CreateItemDto } from './dto/create-item.dto';
 import { UpdateItemDto } from './dto/update-item.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Item } from './entities/item.entity';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class ItemService {
+  constructor(@InjectModel(Item.name) private itemModel: Model<Item>) {}
   create(createItemDto: CreateItemDto) {
     return 'This action adds a new item';
   }

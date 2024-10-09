@@ -50,6 +50,12 @@ importers:
       rxjs:
         specifier: ^7.8.1
         version: 7.8.1
+      swagger-theme:
+        specifier: ^1.0.15
+        version: 1.0.15
+      swagger-themes:
+        specifier: ^1.4.3
+        version: 1.4.3
     devDependencies:
       '@nestjs/cli':
         specifier: ^10.0.0
@@ -2205,6 +2211,10 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
+  ncp@2.0.0:
+    resolution: {integrity: sha512-zIdGUrPRFTUELUvr3Gmc7KZ2Sw/h1PiVM0Af/oHB6zgnV1ikqSfRk+TOufi79aHYCW3NiOXmr1BP5nWbzojLaA==}
+    hasBin: true
+
   negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
@@ -2654,6 +2664,13 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  swagger-theme@1.0.15:
+    resolution: {integrity: sha512-vWJl2HpINJyDPuNga+dyZE3mO/2S+6erXssgB0rSGiATpkrFL7Uq1cnAxmA+JWsaSQxsLld+3VAc8TkZAmhWCQ==}
+    hasBin: true
+
+  swagger-themes@1.4.3:
+    resolution: {integrity: sha512-1G0CqJC1IBbNxkAOyJoREd9hfwXH1R6+3GOFxLhQho2w2i+AbaJqkF4mTJhkce4yhaEMUXvv4KKu1YO/qpe6nQ==}
 
   swagger-ui-dist@5.17.14:
     resolution: {integrity: sha512-CVbSfaLpstV65OnSjbXfVd6Sta3q3F7Cj/yYuvHMp1P90LztOLs6PfUnKEVAeiIVQt9u2SaPwv0LiH/OyMjHRw==}
@@ -5529,6 +5546,8 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
+  ncp@2.0.0: {}
+
   negotiator@0.6.3: {}
 
   neo-async@2.6.2: {}
@@ -5960,6 +5979,12 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  swagger-theme@1.0.15:
+    dependencies:
+      ncp: 2.0.0
+
+  swagger-themes@1.4.3: {}
 
   swagger-ui-dist@5.17.14: {}
 
