@@ -24,6 +24,14 @@ export class CreateAdminDto {
   password: string;
 
   @ApiProperty({
+    description: 'Password for the admin account',
+    example: 'password123',
+  })
+  @IsString()
+  @IsNotEmpty()
+  confirm_password: string;
+
+  @ApiProperty({
     description: 'Profile photo URL',
     example: 'https://example.com/photo.jpg',
     required: false,

@@ -37,6 +37,9 @@ export class Admin extends Document {
   @ApiProperty({ description: 'Whether the admin is active', example: true })
   @Prop({ required: true })
   is_active: boolean;
+
+  @Prop()
+  hashed_refresh_token: string;
 }
 
 export const AdminSchema = SchemaFactory.createForClass(Admin);
