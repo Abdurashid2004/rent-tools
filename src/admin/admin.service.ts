@@ -80,7 +80,7 @@ export class AdminService {
   }
 
   findAll() {
-    return `This action returns all admin`;
+    return this.adminModel.find();
   }
 
   findOne(id: number) {
